@@ -1,1 +1,12 @@
-
+server:
+  port: 9001
+spring:
+  datasource:
+      driver-class-name: org.sqlite.JDBC
+      url: jdbc:sqlite:file:db/mutants.db
+      username: sa
+      password: sa
+  jpa:
+    properties:
+      hibernate:
+        dialect: com.meli.mutants.config.database.dialect.SQLiteDialect

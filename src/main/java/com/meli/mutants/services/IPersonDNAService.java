@@ -42,9 +42,9 @@ public interface IPersonDNAService {
     /**
      * validates the dna of a person to see if is mutant
      *
-     * @param dna the dna sequence
+     * @param personDNA the person dna
      * @return true if is a mutant, otherwise false
      * */
-    boolean isMutant(String[] dna);
+    boolean isMutant(PersonDNA personDNA);
 
 }

@@ -52,10 +52,15 @@ public class PersonDNAService implements IPersonDNAService {
     }
 
     /**
-     * The personDNA repository
+     * Returns if a person is mutant
+     *
+     * @param personDNA the dna
+     * @return if a person is mutant
      * */
     @Override
-    public boolean isMutant(String[] dna) {
-        return false;
+    public boolean isMutant(PersonDNA personDNA) {
+
+        return dnaRepository.findById(personDNA.getId()).orElse(PersonDNA.builder().build())
+                .isMutantPerson();
     }
 }

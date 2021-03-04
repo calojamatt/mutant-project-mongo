@@ -10,11 +10,13 @@
  */
 package com.meli.mutants.controller;
 
+import com.meli.mutants.delegates.IPersonDNADelegate;
 import com.meli.mutants.services.IPersonDNAService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,18 +32,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonDNAController {
 
     /**
-     * the Person Dna service
+     * the Person Dna delegate
      * */
-    private final IPersonDNAService personDNAService;
+    private final IPersonDNADelegate personDNADelegate;
 
     /**
      *
      * @return a HttpStatus 200 if is mutant, otherwise. respond 403 HttpStatus.FORBIDDEN
      * */
     @PostMapping("/mutant/")
-    public ResponseEntity<String> handleDNAValidationRequest(String[] dna) {
+    public ResponseEntity<String> handleDNARequest(@RequestBody String dna) {
 
-        if (personDNAService.isMutant(dna) ) {
+        if (personDNADelegate.handleDNARequestValidation(dna)) {
             return ResponseEntity.ok("");
         }
 
