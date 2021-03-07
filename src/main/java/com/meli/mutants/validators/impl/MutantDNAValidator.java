@@ -30,6 +30,6 @@ public class MutantDNAValidator implements IMutantDNAValidator {
     @Override
     public boolean hasValidDnaSequence(String dna) {
 
-        return dna.matches("[ATCG]");
+        return dna.matches("^[CAGT]+$");
     }
 }

@@ -12,6 +12,7 @@
 package com.meli.mutants.delegates;
 
 import com.meli.mutants.data.dto.MutantDnaDTO;
+import com.meli.mutants.exception.NotValidDNASequenceException;
 
 /**
  * Interface to encapsulate the mutant dna validation logic
@@ -28,6 +29,7 @@ public interface IMutantDnaVerificationDelegate {
      *
      * @param mutantDnaDTO the person dna dto to validate
      * @return whether a dna is mutant or not
+     * @throws NotValidDNASequenceException for invalid DNA sequence
      * */
-    boolean isMutant(MutantDnaDTO mutantDnaDTO);
+    boolean isMutant(MutantDnaDTO mutantDnaDTO) throws NotValidDNASequenceException;
 }

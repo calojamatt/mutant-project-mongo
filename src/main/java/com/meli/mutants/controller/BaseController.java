@@ -12,6 +12,7 @@ package com.meli.mutants.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Base controller class for commons behaviors
@@ -21,6 +22,7 @@ import org.springframework.http.MediaType;
  * @created 7/03/21 9:36 a. m.
  * @since 1.0.0
  */
+@RequestMapping("/api/v1/mutant-dna/")
 public class BaseController {
 
     /**

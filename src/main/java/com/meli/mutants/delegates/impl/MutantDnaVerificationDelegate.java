@@ -15,10 +15,13 @@ import com.meli.mutants.convertes.IConverter;
 import com.meli.mutants.data.dto.DnaDTO;
 import com.meli.mutants.data.dto.MutantDnaDTO;
 import com.meli.mutants.delegates.IMutantDnaVerificationDelegate;
+import com.meli.mutants.exception.NotValidDNASequenceException;
 import com.meli.mutants.validators.IMutantDNAValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 /**
  * Delegate class to validate DNA mutant characters
@@ -39,19 +42,24 @@ public class MutantDnaVerificationDelegate implements IMutantDnaVerificationDele
     private final IConverter<String, DnaDTO> dnaDTOIConverter;
 
     /**
-     *
+     * The DNA sequence validator
      * */
-    private final IMutantDNAValidator personDNAValidator;
+    private final IMutantDNAValidator mutantDNAValidator;
 
     /**
      * {@inheritDoc}
      * */
     @Override
-    public boolean isMutant(MutantDnaDTO mutantDnaDTO) {
+    public boolean isMutant(MutantDnaDTO mutantDnaDTO) throws NotValidDNASequenceException {
 
         final DnaDTO dnaDTO =  dnaDTOIConverter.convert(mutantDnaDTO.getDna());
 
-
+        for (String dnaSequence : dnaDTO.getDna() ) {
+            if (!mutantDNAValidator.hasValidDnaSequence(dnaSequence)) {
+                throw new NotValidDNASequenceException(
+                        String.format("The DNA sequence <%s> is not valid", dnaSequence));
+            }
+        }
 
         int result = obliqueSearch(dnaDTO.getDna()) + horizontalSearch(dnaDTO.getDna());
 

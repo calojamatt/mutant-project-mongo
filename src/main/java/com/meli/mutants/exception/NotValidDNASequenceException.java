@@ -6,7 +6,7 @@
  * All right reserved.
  *
  * mutants-project
- * NotValidValueException.java
+ * NotValidDNASequenceException.java
  */
 package com.meli.mutants.exception;
 
@@ -18,14 +18,14 @@ package com.meli.mutants.exception;
  * @created 7/03/21 9:42 a. m.
  * @since 1.0.0
  */
-public class NotValidValueException extends Exception {
+public class NotValidDNASequenceException extends Exception {
 
 
     /**
-     * Create a new NotValidValueException
+     * Create a new NotValidDNASequenceException
      * @param s the message to send
      * */
-    public NotValidValueException(String s) {
+    public NotValidDNASequenceException(String s) {
         super(s);
     }
 }

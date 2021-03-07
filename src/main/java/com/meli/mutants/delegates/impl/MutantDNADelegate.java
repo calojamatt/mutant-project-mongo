@@ -15,6 +15,7 @@ import com.meli.mutants.data.dto.MutantDnaDTO;
 import com.meli.mutants.data.entities.MutantDNA;
 import com.meli.mutants.delegates.IMutantDnaVerificationDelegate;
 import com.meli.mutants.delegates.IMutantDNADelegate;
+import com.meli.mutants.exception.NotValidDNASequenceException;
 import com.meli.mutants.services.IMutantDNAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -56,7 +57,7 @@ public class MutantDNADelegate implements IMutantDNADelegate {
      * @return if a person is mutant or not
      * */
     @Override
-    public boolean handleDNARequestValidation(String dna) {
+    public boolean handleDNARequestValidation(String dna) throws NotValidDNASequenceException {
 
         final MutantDnaDTO mutantDnaDTO = mutantDnaDTOIConverter.convert(dna);
 

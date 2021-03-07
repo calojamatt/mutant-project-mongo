@@ -11,6 +11,7 @@
 package com.meli.mutants.controller;
 
 import com.meli.mutants.delegates.IMutantDNADelegate;
+import com.meli.mutants.exception.NotValidDNASequenceException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,9 +40,10 @@ public class MutantDNAController extends BaseController {
     /**
      *
      * @return a HttpStatus 200 if is mutant, otherwise. respond 403 HttpStatus.FORBIDDEN
+     * @throws NotValidDNASequenceException if the DNA sequence is invalid
      * */
     @PostMapping("/mutant/")
-    public ResponseEntity<String> handleDNARequest(@RequestBody String dna) {
+    public ResponseEntity<String> handleDNARequest(@RequestBody String dna) throws NotValidDNASequenceException {
 
         if (personDNADelegate.handleDNARequestValidation(dna)) {
             return ResponseEntity.ok().headers(headers()).body("");

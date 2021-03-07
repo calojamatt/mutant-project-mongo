@@ -11,8 +11,10 @@
 
 package com.meli.mutants.delegates;
 
+import com.meli.mutants.exception.NotValidDNASequenceException;
+
 /**
- * Interface to // TODO
+ * Interface for encapsulating the Mutant Dna delegate behavior
  *
  * @author <a href:"carlos.maturana@dytssol.com">Carlos Maturana</a>
  * @version 1.0.1
@@ -21,5 +23,10 @@ package com.meli.mutants.delegates;
  */
 public interface IMutantDNADelegate {
 
-    boolean handleDNARequestValidation(String dna);
+    /**
+     * @param dna the dna sequence complete
+     * @return true if the Dna sequence is mutant, otherwise false
+     * @throws NotValidDNASequenceException when the DNA sequence is invalid
+     * */
+    boolean handleDNARequestValidation(String dna) throws NotValidDNASequenceException;
 }
