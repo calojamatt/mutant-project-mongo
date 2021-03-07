@@ -6,11 +6,11 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNAValidator.java
+ * MutantDNAValidator.java
  */
 package com.meli.mutants.validators.impl;
 
-import com.meli.mutants.validators.IPersonDNAValidator;
+import com.meli.mutants.validators.IMutantDNAValidator;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
  * @since 1.0.0
  */
 @Component
-public class PersonDNAValidator implements IPersonDNAValidator {
+public class MutantDNAValidator implements IMutantDNAValidator {
 
     /**
      * {@inheritDoc}

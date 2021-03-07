@@ -6,31 +6,32 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDnaDTOConverter.java
+ * DnaConverter.java
  */
 package com.meli.mutants.convertes.impl;
 
+import com.google.gson.Gson;
 import com.meli.mutants.convertes.IConverter;
-import com.meli.mutants.data.dto.PersonDnaDTO;
+import com.meli.mutants.data.dto.DnaDTO;
 import org.springframework.stereotype.Component;
 
 /**
- * Class to transform a DNA string into PersonDnaDTO
+ * Class to transform the String Dna to DNA DTO
  *
  * @author <a href:"carlos.maturana@dytssol.com">Carlos Maturana</a>
  * @version 1.0.1
- * @created 4/03/21 1:03 a. m.
+ * @created 6/03/21 9:07 p. m.
  * @since 1.0.0
  */
 @Component
-public class PersonDnaDTOConverter implements IConverter<String, PersonDnaDTO> {
+public class DnaConverter implements IConverter<String, DnaDTO> {
 
     /**
      * {@inheritDoc}
      * */
     @Override
-    public PersonDnaDTO convert(String s) {
+    public DnaDTO convert(String dna) {
 
-        return PersonDnaDTO.builder().withDna(s).build();
+        return new Gson().fromJson(dna, DnaDTO.class);
     }
 }

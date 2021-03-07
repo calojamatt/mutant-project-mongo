@@ -6,7 +6,7 @@
  * All right reserved.
  *
  * mutants-project
- * IPersonDNADelegate.java
+ * IMutantDNADelegate.java
  */
 
 package com.meli.mutants.delegates;
@@ -19,7 +19,7 @@ package com.meli.mutants.delegates;
  * @created 4/03/21 12:31 a. m.
  * @since 1.0.0
  */
-public interface IPersonDNADelegate {
+public interface IMutantDNADelegate {
 
     boolean handleDNARequestValidation(String dna);
 }

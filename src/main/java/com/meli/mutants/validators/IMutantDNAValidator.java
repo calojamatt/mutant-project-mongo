@@ -6,7 +6,7 @@
  * All right reserved.
  *
  * mutants-project
- * IPersonDNAValidator.java
+ * IMutantDNAValidator.java
  */
 
 package com.meli.mutants.validators;
@@ -19,7 +19,7 @@ package com.meli.mutants.validators;
  * @created 4/03/21 1:45 a. m.
  * @since 1.0.0
  */
-public interface IPersonDNAValidator {
+public interface IMutantDNAValidator {
 
     /**
      * Validates the dna sequence to see if is correct

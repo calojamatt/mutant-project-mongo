@@ -3,7 +3,7 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNA.java
+ * MutantDNA.java
  */
 package com.meli.mutants.data.entities;
 
@@ -27,7 +27,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity @Table(name = "person_dna")
-public class PersonDNA {
+public class MutantDNA {
 
     /** the mutant id */
     @Id

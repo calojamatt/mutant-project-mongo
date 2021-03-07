@@ -6,17 +6,17 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNAConverter.java
+ * MutantDNAConverter.java
  */
 package com.meli.mutants.convertes.impl;
 
 import com.meli.mutants.convertes.IConverter;
-import com.meli.mutants.data.dto.PersonDnaDTO;
-import com.meli.mutants.data.entities.PersonDNA;
+import com.meli.mutants.data.dto.MutantDnaDTO;
+import com.meli.mutants.data.entities.MutantDNA;
 import org.springframework.stereotype.Component;
 
 /**
- * Class to transform a PersonDnaDTO to PersonDNA type
+ * Class to transform a PersonDnaDTO to MutantDNA type
  *
  * @author <a href:"carlos.maturana@dytssol.com">Carlos Maturana</a>
  * @version 1.0.1
@@ -24,15 +24,15 @@ import org.springframework.stereotype.Component;
  * @since 1.0.0
  */
 @Component
-public class PersonDNAConverter implements IConverter<PersonDnaDTO, PersonDNA> {
+public class MutantDNAConverter implements IConverter<MutantDnaDTO, MutantDNA> {
 
     /**
      * {@inheritDoc}
      * */
     @Override
-    public PersonDNA convert(PersonDnaDTO personDnaDTO) {
+    public MutantDNA convert(MutantDnaDTO personDnaDTO) {
 
-        return PersonDNA.builder()
+        return MutantDNA.builder()
                 .withDna(personDnaDTO.getDna())
                 .withMutantPerson(personDnaDTO.isMutantPerson())
                 .build();

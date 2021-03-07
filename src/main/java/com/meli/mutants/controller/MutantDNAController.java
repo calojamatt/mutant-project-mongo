@@ -10,10 +10,10 @@
  */
 package com.meli.mutants.controller;
 
-import com.meli.mutants.delegates.IPersonDNADelegate;
-import com.meli.mutants.services.IPersonDNAService;
+import com.meli.mutants.delegates.IMutantDNADelegate;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,12 +29,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @AllArgsConstructor
 @RestController
-public class PersonDNAController {
+public class MutantDNAController extends BaseController {
 
     /**
      * the Person Dna delegate
      * */
-    private final IPersonDNADelegate personDNADelegate;
+    private final IMutantDNADelegate personDNADelegate;
 
     /**
      *
@@ -44,9 +44,9 @@ public class PersonDNAController {
     public ResponseEntity<String> handleDNARequest(@RequestBody String dna) {
 
         if (personDNADelegate.handleDNARequestValidation(dna)) {
-            return ResponseEntity.ok("");
+            return ResponseEntity.ok().headers(headers()).body("");
         }
 
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).contentType(MediaType.APPLICATION_JSON).body("");
     }
 }

@@ -6,12 +6,12 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNA.java
+ * MutantDNA.java
  */
 
 package com.meli.mutants.data.repository;
 
-import com.meli.mutants.data.entities.PersonDNA;
+import com.meli.mutants.data.entities.MutantDNA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -24,5 +24,5 @@ import org.springframework.stereotype.Repository;
  * @since 1.0.0
  */
 @Repository
-public interface PersonDNARepository extends JpaRepository<PersonDNA, Long> {
+public interface MutantDNARepository extends JpaRepository<MutantDNA, Long> {
 }

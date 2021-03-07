@@ -6,13 +6,13 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNAService.java
+ * MutantDNAService.java
  */
 package com.meli.mutants.services.impl;
 
-import com.meli.mutants.data.entities.PersonDNA;
-import com.meli.mutants.data.repository.PersonDNARepository;
-import com.meli.mutants.services.IPersonDNAService;
+import com.meli.mutants.data.entities.MutantDNA;
+import com.meli.mutants.data.repository.MutantDNARepository;
+import com.meli.mutants.services.IMutantDNAService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,41 +26,41 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class PersonDNAService implements IPersonDNAService {
+public class MutantDNAService implements IMutantDNAService {
 
     /**
      * The personDNA repository
      * */
-    private final PersonDNARepository dnaRepository;
+    private final MutantDNARepository dnaRepository;
 
     /**
      * {@inheritDoc}
      * */
     @Override
-    public PersonDNA save(PersonDNA personDNA) {
+    public MutantDNA save(MutantDNA mutantDNA) {
 
-        return dnaRepository.save(personDNA);
+        return dnaRepository.save(mutantDNA);
     }
 
     /**
      * {@inheritDoc}
      * */
     @Override
-    public PersonDNA update(PersonDNA personDNA) {
+    public MutantDNA update(MutantDNA mutantDNA) {
 
-        return dnaRepository.saveAndFlush(personDNA);
+        return dnaRepository.saveAndFlush(mutantDNA);
     }
 
     /**
      * Returns if a person is mutant
      *
-     * @param personDNA the dna
+     * @param mutantDNA the dna
      * @return if a person is mutant
      * */
     @Override
-    public boolean isMutant(PersonDNA personDNA) {
+    public boolean isMutant(MutantDNA mutantDNA) {
 
-        return dnaRepository.findById(personDNA.getId()).orElse(PersonDNA.builder().build())
+        return dnaRepository.findById(mutantDNA.getId()).orElse(MutantDNA.builder().build())
                 .isMutantPerson();
     }
 }

@@ -11,7 +11,7 @@
 
 package com.meli.mutants.delegates;
 
-import com.meli.mutants.data.dto.PersonDnaDTO;
+import com.meli.mutants.data.dto.MutantDnaDTO;
 
 /**
  * Interface to encapsulate the mutant dna validation logic
@@ -26,8 +26,8 @@ public interface IMutantDnaVerificationDelegate {
     /**
      * Validates if a DNA has mutant characters
      *
-     * @param personDnaDTO the person dna dto to validate
+     * @param mutantDnaDTO the person dna dto to validate
      * @return whether a dna is mutant or not
      * */
-    boolean isMutant(PersonDnaDTO personDnaDTO);
+    boolean isMutant(MutantDnaDTO mutantDnaDTO);
 }

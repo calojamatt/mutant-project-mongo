@@ -6,7 +6,7 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDnaDTO.java
+ * MutantDnaDTO.java
  */
 package com.meli.mutants.data.dto;
 
@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonDnaDTO {
+public class MutantDnaDTO {
 
     /** the mutant id */
     private Long id;

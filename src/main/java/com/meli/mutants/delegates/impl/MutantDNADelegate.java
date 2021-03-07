@@ -6,16 +6,16 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNADelegate.java
+ * MutantDNADelegate.java
  */
 package com.meli.mutants.delegates.impl;
 
 import com.meli.mutants.convertes.IConverter;
-import com.meli.mutants.data.dto.PersonDnaDTO;
-import com.meli.mutants.data.entities.PersonDNA;
+import com.meli.mutants.data.dto.MutantDnaDTO;
+import com.meli.mutants.data.entities.MutantDNA;
 import com.meli.mutants.delegates.IMutantDnaVerificationDelegate;
-import com.meli.mutants.delegates.IPersonDNADelegate;
-import com.meli.mutants.services.IPersonDNAService;
+import com.meli.mutants.delegates.IMutantDNADelegate;
+import com.meli.mutants.services.IMutantDNAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -29,22 +29,22 @@ import org.springframework.stereotype.Component;
  */
 @RequiredArgsConstructor
 @Component
-public class PersonDNADelegate implements IPersonDNADelegate {
+public class MutantDNADelegate implements IMutantDNADelegate {
 
     /**
      * the Person Dna service
      * */
-    private final IPersonDNAService personDNAService;
+    private final IMutantDNAService personDNAService;
 
     /**
      * the person dna dto to person dna converter
      * */
-    private final IConverter<PersonDnaDTO, PersonDNA> personDNAIConverter;
+    private final IConverter<MutantDnaDTO, MutantDNA> personDNAIConverter;
 
     /**
      * the dna string to person dna converter
      * */
-    private final IConverter<String, PersonDnaDTO> personDnaDTOIConverter;
+    private final IConverter<String, MutantDnaDTO> mutantDnaDTOIConverter;
 
     /**
      * the Mutant DNA verification delegate
@@ -58,12 +58,13 @@ public class PersonDNADelegate implements IPersonDNADelegate {
     @Override
     public boolean handleDNARequestValidation(String dna) {
 
-        final PersonDnaDTO personDnaDTO = personDnaDTOIConverter.convert(dna);
+        final MutantDnaDTO mutantDnaDTO = mutantDnaDTOIConverter.convert(dna);
 
-        boolean isMutant = mutantDnaVerificationDelegate.isMutant(personDnaDTO);
-        personDnaDTO.setMutantPerson(isMutant);
+        // validate is the DNA is for a mutant person
+        boolean isMutant = mutantDnaVerificationDelegate.isMutant(mutantDnaDTO);
+        mutantDnaDTO.setMutantPerson(isMutant);
 
-        personDNAService.save(personDNAIConverter.convert(personDnaDTO));
+        personDNAService.save(personDNAIConverter.convert(mutantDnaDTO));
 
         return isMutant;
     }

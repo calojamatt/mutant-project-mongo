@@ -6,22 +6,22 @@
  * All right reserved.
  *
  * mutants-project
- * PersonDNA.java
+ * MutantDNA.java
  */
 
 package com.meli.mutants.services;
 
-import com.meli.mutants.data.entities.PersonDNA;
+import com.meli.mutants.data.entities.MutantDNA;
 
 /**
- * Interface to encapsulate the service class PersonDNA operations
+ * Interface to encapsulate the service class MutantDNA operations
  *
  * @author <a href:"carlos.maturana@dytssol.com">Carlos Maturana</a>
  * @version 1.0.1
  * @created 2/03/21 12:17 a. m.
  * @since 1.0.0
  */
-public interface IPersonDNAService {
+public interface IMutantDNAService {
 
     /**
      * Persists the DNA data from personDNA to database
@@ -29,7 +29,7 @@ public interface IPersonDNAService {
      * @param personDNA the personDNA to store data
      * @return the saved personDNA
      * */
-    PersonDNA save(PersonDNA personDNA);
+    MutantDNA save(MutantDNA personDNA);
 
     /**
      * Update the DNA data from personDNA to database
@@ -37,7 +37,7 @@ public interface IPersonDNAService {
      * @param personDNA the personDNA data to update
      * @return the updated personDNA
      * */
-    PersonDNA update(PersonDNA personDNA);
+    MutantDNA update(MutantDNA personDNA);
 
     /**
      * validates the dna of a person to see if is mutant
@@ -45,6 +45,6 @@ public interface IPersonDNAService {
      * @param personDNA the person dna
      * @return true if is a mutant, otherwise false
      * */
-    boolean isMutant(PersonDNA personDNA);
+    boolean isMutant(MutantDNA personDNA);
 
 }
