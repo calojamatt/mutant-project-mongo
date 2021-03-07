@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 
 /**
- * Class to // TODO
+ * Class to Manage the Mutant DNA and encapsulate the entity
  *
  * @author <a href:"carlos.maturana@dytssol.com">Carlos Maturana</a>
  * @version 1.0.1
