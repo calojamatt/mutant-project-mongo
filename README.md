@@ -1,11 +1,13 @@
-# mutants-project
+# Mutants Project
 
-# Execution instructions
+Project to validate if a dna is mutant or not.
+
+## Execution instructions
 1. clone the repo to local environment
 2. run : mvn install package
 3. run : mvn spring-boot:run
 
-# Available Endpoints
+## Available Endpoints
 
 ##  mutants dna endpoint
 ### method: post
