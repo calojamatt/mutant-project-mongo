@@ -1,8 +1,7 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -49,18 +48,5 @@ public class MutantDNAService implements IMutantDNAService {
     public MutantDNA update(MutantDNA mutantDNA) {
 
         return dnaRepository.saveAndFlush(mutantDNA);
-    }
-
-    /**
-     * Returns if a person is mutant
-     *
-     * @param mutantDNA the dna
-     * @return if a person is mutant
-     * */
-    @Override
-    public boolean isMutant(MutantDNA mutantDNA) {
-
-        return dnaRepository.findById(mutantDNA.getId()).orElse(MutantDNA.builder().build())
-                .isMutantPerson();
     }
 }

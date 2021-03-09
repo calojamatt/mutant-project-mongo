@@ -1,5 +1,7 @@
 /*
- * Copyright © 2015 - 2021
+ * Carlos Alberto Maturana Mulett
+ *
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -7,10 +9,7 @@
  */
 package com.meli.mutants.data.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -23,7 +22,8 @@ import javax.persistence.*;
  * @since 1.0.0
  */
 @Builder(setterPrefix = "with")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity @Table(name = "person_dna")
@@ -36,7 +36,7 @@ public class MutantDNA {
 
     /** indicates if a person is mutant*/
     @Column(name = "mutant")
-    private boolean mutantPerson;
+    private boolean mutant;
 
     /** the dna of the person */
     @Column(name = "dna")

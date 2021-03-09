@@ -1,8 +1,7 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @created 7/03/21 9:36 a. m.
  * @since 1.0.0
  */
-@RequestMapping("/api/v1/mutant-dna/")
+@RequestMapping("/api/v1/mutant-dna")
 public class BaseController {
 
     /**

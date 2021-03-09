@@ -1,16 +1,15 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
  * PersonDnaDTOConverter.java
  */
-package com.meli.mutants.convertes.impl;
+package com.meli.mutants.converter.impl;
 
-import com.meli.mutants.convertes.IConverter;
+import com.meli.mutants.converter.IConverter;
 import com.meli.mutants.data.dto.MutantDnaDTO;
 import org.springframework.stereotype.Component;
 

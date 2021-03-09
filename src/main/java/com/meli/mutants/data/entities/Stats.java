@@ -1,8 +1,7 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -13,10 +12,7 @@ package com.meli.mutants.data.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jdk.nashorn.internal.ir.annotations.Immutable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Subselect;
 
 import javax.persistence.Entity;
@@ -30,8 +26,8 @@ import javax.persistence.Id;
  * @created 6/03/21 11:13 p. m.
  * @since 1.0.0
  */
-@Builder
-@Data
+@Builder(setterPrefix = "with")
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

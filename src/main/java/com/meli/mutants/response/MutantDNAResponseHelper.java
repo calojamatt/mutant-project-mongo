@@ -1,8 +1,7 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -29,14 +27,13 @@ import java.util.Optional;
  * @since 1.0.0
  */
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Builder
 public class MutantDNAResponseHelper {
 
     /** the error message to send to view */
     @JsonProperty("error_message")
-    private String errorMessage;
+    private final String errorMessage;
 
     /**
      * Builds error response. returns a response entity with the response of the operation

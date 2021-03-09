@@ -1,8 +1,7 @@
 /*
- * Development and Technologies Solutions S.A.S - D&TS
- * www.dytssol.com
+ * Carlos Alberto Maturana Mulett
  *
- * Copyright © 2015 - 2021
+ * Copyright © 2021
  * All right reserved.
  *
  * mutants-project
@@ -10,11 +9,8 @@
  */
 package com.meli.mutants.data.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import lombok.*;
 
 /**
  * Class to Manage the Mutant DNA and encapsulate the entity
@@ -25,16 +21,13 @@ import lombok.NoArgsConstructor;
  * @since 1.0.0
  */
 @Builder(setterPrefix = "with")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 public class MutantDnaDTO {
 
-    /** the mutant id */
-    private Long id;
-
-    /** indicates if a person is mutant*/
-    private boolean mutantPerson;
+    /** indicates if a dna is mutant*/
+    private boolean mutant;
 
     /** the dna of the person */
     private String dna;
