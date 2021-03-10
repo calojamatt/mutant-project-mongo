@@ -32,7 +32,7 @@ public abstract class MutantsApplicationTests {
     public final static String DNA_MUTANT = "{\"dna\":[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}";
 
     /** no mutant dna string to validate */
-    public final static String DNA_NO_MUTANT = "{\"dna\":[\"ACGACG\",\"CATTGC\",\"TCATGT\",\"AGCAGG\",\"CCACTA\",\"TCACTG\"]}";
+    public final static String DNA_NO_MUTANT = "{\"dna\":[\"ATGACG\",\"CAGTAC\",\"TCATGT\",\"AGCAGG\",\"CCTCTA\",\"TACTCG\"]}";
 
     /** invalid dna string to validate */
     public final static String DNA_NO_VALID = "{\"dna\":[\"ATGACX\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCACTA\",\"TCACTG\"]}";
