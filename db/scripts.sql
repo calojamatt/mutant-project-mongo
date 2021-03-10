@@ -12,8 +12,7 @@ create table mutant_dna
 
 -- Database tables for mysql
 -- Create mutant_person table
-create table mutant_dna
-(
+create table mutant_dna(
 	id int not null AUTO_INCREMENT,
 	mutant tinyint default 0 not null,
 	dna text not null,

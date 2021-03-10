@@ -2,23 +2,32 @@
 
 Project to validate if a dna is mutant or not.
 
-## Execution instructions
-1. clone the repo to local environment
+## Execution instructions local environment
+1. clone the repo to a local directory
 2. run : mvn install package
 3. run : mvn spring-boot:run
 
 ## Available Endpoints
 
-##  mutants dna endpoint
+##  Mutants DNA endpoint
 ### method: post
-hostname:port/api/v1/mutant-dna/mutant/
+http://hostname:port/api/v1/mutant-dna/mutant/
 
-curl --location --request POST 'localhost:9001/api/v1/mutant-dna/mutant/' \
+#### Local Environment
+curl --location --request POST 'localhost:5000/api/v1/mutant-dna/mutant/' \
 --data-raw '{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}'
 
-##  stats endpoint
-### method: get
-hostname:port/api/v1/mutant-dna/mutant/
+#### AWS Environment
+curl --location --request POST 'http://mutant-dna-project-dev.us-east-2.elasticbeanstalk.com/api/v1/mutant-dna/mutant/' \
+--data-raw '{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}'
 
-#### curl request
-curl --location --request GET 'localhost:9001/api/v1/mutant-dna/stats'
+
+##  Stats endpoint
+### method: get
+http://hostname:port/api/v1/mutant-dna/stats
+
+#### Local Environment
+curl --location --request GET 'localhost:5000/api/v1/mutant-dna/stats'
+
+#### AWS Environment
+curl --location --request GET 'http://mutant-dna-project-dev.us-east-2.elasticbeanstalk.com/api/v1/mutant-dna/stats'
