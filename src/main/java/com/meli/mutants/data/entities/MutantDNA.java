@@ -26,7 +26,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity @Table(name = "person_dna")
+@Entity @Table(name = "mutant_dna")
 public class MutantDNA {
 
     /** the mutant id */

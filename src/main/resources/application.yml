@@ -2,11 +2,17 @@ server:
   port: 9001
 spring:
   datasource:
-      driver-class-name: org.sqlite.JDBC
-      url: jdbc:sqlite:file:db/mutants.db
-      username: sa
-      password: sa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mutant?allowPublicKeyRetrieval=true&useSSL=false
+    username: mutant_user
+    password: Mut4nt2039
+## sqlite
+#      driver-class-name: org.sqlite.JDBC
+#      url: jdbc:sqlite:file:db/mutants.db
+#      username: sa
+#      password: sa
   jpa:
     properties:
       hibernate:
-        dialect: com.meli.mutants.config.database.dialect.SQLiteDialect
+        dialect:  org.hibernate.dialect.MySQL8Dialect
+#        dialect: com.meli.mutants.config.database.dialect.SQLiteDialect

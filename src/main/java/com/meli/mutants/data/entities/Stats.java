@@ -11,8 +11,8 @@ package com.meli.mutants.data.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jdk.nashorn.internal.ir.annotations.Immutable;
 import lombok.*;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.Subselect;
 
 import javax.persistence.Entity;
@@ -34,8 +34,8 @@ import javax.persistence.Id;
 @Immutable
 @Subselect("select sum(case when mutant = 1 then 1 else 0 end) count_mutant_dna," +
         "sum(case when mutant = 0 then 1 else 0 end) count_human_dna," +
-        "sum(case when mutant = 1 then 1 else 0 end)/sum(case when mutant = 0 then 1 else 0 end) as ratio " +
-        "from person_dna")
+        "IFNULL(sum(case when mutant = 1 then 1 else 0 end)/sum(case when mutant = 0 then 1 else 0 end),0) as ratio " +
+        "from mutant_dna")
 @JsonPropertyOrder({"count_mutant_dna","count_human_dna","ratio"})
 public class Stats {
 
