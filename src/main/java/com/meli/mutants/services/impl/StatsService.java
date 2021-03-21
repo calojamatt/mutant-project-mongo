@@ -13,7 +13,17 @@ import com.meli.mutants.data.entities.Stats;
 import com.meli.mutants.data.repository.StatsRepository;
 import com.meli.mutants.services.IStatsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
+import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.stereotype.Service;
+
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.project;
+import static org.springframework.data.mongodb.core.aggregation.ConditionalOperators.when;
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * Class to perform the request to get statistics from database
@@ -38,6 +48,11 @@ public class StatsService implements IStatsService {
     @Override
     public Stats generateStatistics() {
 
-        return statsRepository.generateStatistics();
+       final Stats stats =  statsRepository.generateStatistics().getUniqueMappedResult();
+       final Integer total = stats.getCountMutantDna() + stats.getCountHumanDna();
+       final Float ratio = stats.getCountMutantDna().floatValue() / total.floatValue();
+       stats.setRatio(ratio);
+
+       return stats;
     }
 }

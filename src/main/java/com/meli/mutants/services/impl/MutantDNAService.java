@@ -47,6 +47,6 @@ public class MutantDNAService implements IMutantDNAService {
     @Override
     public MutantDNA update(MutantDNA mutantDNA) {
 
-        return dnaRepository.saveAndFlush(mutantDNA);
+        return save(mutantDNA);
     }
 }

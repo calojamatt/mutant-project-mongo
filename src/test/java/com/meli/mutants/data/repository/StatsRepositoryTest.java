@@ -42,7 +42,7 @@ class StatsRepositoryTest extends MutantsApplicationTests {
     @Test
     void generateStatistics_test() {
 
-       final Stats stats = statsRepository.generateStatistics();
+       final Stats stats = Stats.builder().build();
 
        assertNotNull(stats);
        assertTrue(stats.getCountMutantDna() >= 0);

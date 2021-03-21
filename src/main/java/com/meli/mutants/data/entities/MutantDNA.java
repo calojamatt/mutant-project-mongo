@@ -10,8 +10,8 @@
 package com.meli.mutants.data.entities;
 
 import lombok.*;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Class to map the database fields
@@ -26,19 +26,16 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity @Table(name = "mutant_dna")
+@Document(collection = "mutant_dna")
 public class MutantDNA {
 
     /** the mutant id */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     /** indicates if a person is mutant*/
-    @Column(name = "mutant")
     private boolean mutant;
 
     /** the dna of the person */
-    @Column(name = "dna")
     private String dna;
 }

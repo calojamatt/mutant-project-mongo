@@ -11,8 +11,7 @@
 package com.meli.mutants.data.repository;
 
 import com.meli.mutants.data.entities.MutantDNA;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * Interface to manage crud operations with the database
@@ -22,6 +21,5 @@ import org.springframework.stereotype.Repository;
  * @created 2/03/21 12:17 a. m.
  * @since 1.0.0
  */
-@Repository
-public interface MutantDNARepository extends JpaRepository<MutantDNA, Long> {
+public interface MutantDNARepository extends MongoRepository<MutantDNA, String> {
 }

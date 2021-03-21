@@ -9,14 +9,12 @@
  */
 package com.meli.mutants.data.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Subselect;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Class to generate statistics from human dna
@@ -28,15 +26,11 @@ import javax.persistence.Id;
  */
 @Builder(setterPrefix = "with")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Immutable
-@Subselect("select sum(case when mutant = 1 then 1 else 0 end) count_mutant_dna," +
-        "sum(case when mutant = 0 then 1 else 0 end) count_human_dna," +
-        "IFNULL(sum(case when mutant = 1 then 1 else 0 end)/sum(case when mutant = 0 then 1 else 0 end),0) as ratio " +
-        "from mutant_dna")
 @JsonPropertyOrder({"count_mutant_dna","count_human_dna","ratio"})
+@Document(collection = "mutant_dna")
 public class Stats {
 
     /**
@@ -54,6 +48,9 @@ public class Stats {
     /**
      * the ratio
      * */
-    @Id
     private Float ratio;
+
+    @JsonIgnore
+    @Id
+    private Long id;
 }

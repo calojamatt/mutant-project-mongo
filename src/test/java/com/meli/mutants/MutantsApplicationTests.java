@@ -16,6 +16,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.UUID;
+
 /**
  * Abstract Class to manage configuration method
  *
@@ -48,7 +50,7 @@ public abstract class MutantsApplicationTests {
     public MutantDNA mutantDNASample(boolean mutant) {
 
         return MutantDNA.builder()
-                .withId(101510L)
+                .withId(UUID.randomUUID().toString())
                 .withDna(DNA_MUTANT)
                 .withMutant(mutant)
                 .build();
